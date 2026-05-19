@@ -1,244 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday, [Enter Name of your loved one]!</title>
-
-  <!-- This script pulls in Tailwind CSS for styling -->
+  <title>Happy Birthday, [Her Name]!</title>
+  <meta property="og:image" content="https://placehold.co/1200x630/87CEEB/FFFFFF?text=A+Surprise+For+[Her Name]">
+  
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- These are for the animations and photo gallery -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" />
-
-  <!-- Google Fonts for the Anime look -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Link to your new external CSS file -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@300;400;600&display=swap');
+    body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+    .font-anime { font-family: 'Mochiy Pop One', sans-serif; }
+    .bg-navy { background-color: #1a202c; }
+    .text-sakura { color: #ffb7c5; }
+    
+    /* Scrollbar hiding for Hall of Fame */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
   <link rel="stylesheet" href="style.css">
-  <!-- IMPORTANT: Replace with a real image link after you upload it -->
-  <meta property="og:image" content="https://placehold.co/1200x630/87CEEB/FFFFFF?text=A+Surprise+For+[Name]">
 </head>
-<body>
-<!-- Canvas for the falling cherry blossoms -->
-<canvas id="sakura-canvas"></canvas>
 
-<!-- Section 1: Hero Welcome -->
-<header class="h-screen relative flex items-center justify-center text-white overflow-hidden">
-  <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-    <source src="img/sa.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<body class="bg-gray-50 text-gray-800">
 
-  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  <!-- Section 1: Hero -->
+  <header class="relative w-full h-screen flex flex-col items-center justify-center text-white overflow-hidden text-center p-4">
+    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+      <source src="img/sa.mp4" type="video/mp4">
+    </video>
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-0"></div>
+    <canvas id="sakura-canvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
+    
+    <div class="z-20 space-y-6">
+      <h1 class="text-5xl md:text-7xl font-anime drop-shadow-lg text-sakura" data-aos="fade-down">Happy Birthday, [Her Name]!</h1>
+      <p class="text-xl md:text-2xl font-light drop-shadow-md" data-aos="fade-up" data-aos-delay="300">Welcome to your special day...</p>
+      <div id="countdown" class="text-2xl md:text-4xl font-bold mt-4 drop-shadow-md" data-aos="zoom-in" data-aos-delay="600"></div>
+    </div>
+  </header>
 
-  <div class="text-center z-10 p-4" data-aos="fade-in" data-aos-duration="1500">
-    <h1 class="text-5xl md:text-7xl font-anime drop-shadow-lg">Happy Birthday, [Enter Name of your loved one]!</h1>
-    <p class="mt-4 text-xl font-semibold">Celebrating a wonderful journey of...[in background you can add video or photos of your loved one]</p>
-    <div id="countdown" class="mt-6 text-2xl font-semibold tracking-widest leading-relaxed"></div>
-  </div>
-</header>
-
-<!-- Main Content -->
-<main class="container mx-auto p-6 md:p-12">
-
-  <!-- Section 2: A Letter For You -->
-  <section class="my-16 md:my-24 max-w-3xl mx-auto text-center" data-aos="fade-up">
-    <h2 class="text-4xl md:text-5xl font-anime text-sakura mb-8 drop-shadow-sm">A Special Message For You</h2>
+  <!-- Section 2: A Special Message -->
+  <section class="py-20 px-4 max-w-4xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-4xl font-anime text-navy mb-8">A Special Message For You</h2>
     <div class="text-left text-lg leading-relaxed space-y-4 bg-white p-8 rounded-lg shadow-lg">
-      <!-- TODO: Write your personal letter here -->
-      <p>Hey [Enter Name of your loved one],</p>
-      <p>Wish you a very Happy Birthday [Enter Name of your loved one]! May god fulfil all your wishes, you have an endless supply of happy days and your dreams turns into reality, A life surrounded with pets and life that will become a manga </p>
-      <p>Thankyou for always being so kind and reason behind everyone smile, Always connected to your roots , A true friend to everyone, You always be yourself and that's your vibe We all are very lucky, we are not in city of gems still we found a real gem.</p>
-      <p class="text-right mt-8">
-        Regards<br>
-      </p>
+      <p>Hey [Her Name],</p>
+      <p>Wish you a very Happy Birthday! May god fulfill all your wishes, you have an endless supply of happy days and your dreams turn into reality.</p>
+      <p class="text-right mt-8">With Love,<br>Me</p>
     </div>
   </section>
 
-  <!-- Section 3: The Timeline -->
-  <section class="my-16 md:my-24">
-    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Your Story Arc</h2>
-    <div class="space-y-16">
-      <!-- Timeline Item 1 -->
+  <!-- Section 3: Your Story Arc -->
+  <section class="py-20 bg-gray-100 px-4">
+    <div class="max-w-5xl mx-auto space-y-16">
+      <h2 class="text-4xl font-anime text-center text-navy mb-12" data-aos="fade-down">Your Story Arc</h2>
+      
+      <!-- Item 1 -->
       <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
-        <!-- TODO: Replace with your photo -->
-        <img src="img/jammu.png" alt="Add photo 1" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+        <img src="photo_1_2026-05-20_01-16-45.jpg" alt="Our first Meeting" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white object-cover">
         <div class="text-center md:text-left">
-          <!-- TODO: Customize the date and story -->
-          <h3 class="text-2xl font-anime text-sakura">Our first Meeting</h3>
-          <p class="mt-2 text-lg">Write your Story here</p>
-            <br>
+          <h3 class="text-2xl font-anime text-sakura">Our First Meeting</h3>
+          <p class="mt-2 text-lg">Write your story here...</p>
         </div>
       </div>
-      <!-- Timeline Item 2 -->
+      <!-- Item 2 -->
       <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
-        <!-- TODO: Replace with your photo -->
-        <img src="img/food.png" alt="Add photo 2" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+        <img src="photo_2_2026-05-20_01-16-45.jpg" alt="Part 2" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white object-cover">
         <div class="text-center md:text-right">
-          <!-- TODO: Customize the date and story -->
           <h3 class="text-2xl font-anime text-sakura">Part 2</h3>
-          <p class="mt-2 text-lg">Message 2</p>
-         <br>
+          <p class="mt-2 text-lg">Message 2...</p>
         </div>
       </div>
-      <!-- Timeline Item 3 (NEW) -->
+      <!-- Item 3 -->
       <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
-        <img src="img/mumbai.png" alt="Add photo 3" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+        <img src="photo_3_2026-05-20_01-16-45.jpg" alt="Part 3" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white object-cover">
         <div class="text-center md:text-left">
-          <h3 class="text-2xl font-anime text-sakura">Part3</h3>
-          <p class="mt-2 text-lg">Message3</p>
-         <br>
+          <h3 class="text-2xl font-anime text-sakura">Part 3</h3>
+          <p class="mt-2 text-lg">Message 3...</p>
         </div>
       </div>
-      <!-- Timeline Item 4 (NEW) -->
+      <!-- Item 4 -->
       <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
-        <img src="img/imagica.png" alt="Add photo4" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+        <img src="photo_4_2026-05-20_01-16-45.jpg" alt="Part 4" class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white object-cover">
         <div class="text-center md:text-right">
           <h3 class="text-2xl font-anime text-sakura">Part 4</h3>
-          <p class="mt-2 text-lg">Message 4</p>
-            <br>
+          <p class="mt-2 text-lg">Message 4...</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 4: Your Favourite Photos of your loved Ones (NEW SECTION) -->
-  <section class="my-16 md:my-24">
-    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Hall of Fame</h2>
-    <div class="relative">
-      <!-- Scroll Buttons -->
-      <button id="scroll-left-btn" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+  <!-- Section 4: Hall of Fame -->
+  <section class="py-20 px-4 max-w-6xl mx-auto relative">
+    <h2 class="text-4xl font-anime text-center text-navy mb-8" data-aos="zoom-in">Hall of Fame</h2>
+    
+    <div class="flex items-center">
+      <button id="scroll-left-btn" class="absolute left-0 z-10 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 focus:outline-none">
+        &#8592;
       </button>
-      <button id="scroll-right-btn" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-      </button>
-
-      <!-- Scrollable Container -->
-      <div id="hall-of-fame-scroller" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide p-4 -mx-4">
-        <div class="flex snap-x snap-mandatory gap-8">
-          <!--  Card 1 -->
-          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="100">
-            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-              <img src="img/naruto.png" alt="Photo 1" class="w-full h-80 object-cover rounded-md mb-4">
-              <h3 class="text-2xl font-anime text-sakura">Photo 1</h3>
-              <p class="mt-2">"Caption 1”"</p>
-            </div>
-          </div>
-          <!--  Card 2 -->
-          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="200">
-            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-              <img src="img/pickachu.png" alt="Photo 2" class="w-full h-80 object-cover rounded-md mb-4">
-              <h3 class="text-2xl font-anime text-sakura">Photo 2</h3>
-              <p class="mt-2">"Caption 2"</p>
-            </div>
-          </div>
-          <!--  Card 3 -->
-          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="300">
-            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-              <img src="img/demon.png" alt="Photo 3" class="w-full h-80 object-cover rounded-md mb-4">
-              <h3 class="text-2xl font-anime text-sakura">Photo 3</h3>
-              <p class="mt-2">"Caption 3"</p>
-            </div>
-          </div>
-          <!--  Card 4 -->
-          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="400">
-            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-              <img src="img/spirit.png" alt="Photo 4" class="w-full h-80 object-cover rounded-md mb-4">
-              <h3 class="text-2xl font-anime text-sakura">Photo 4</h3>
-              <p class="mt-2">"Caption 4"</p>
-            </div>
-          </div>
-          <!--  Card 5 -->
-          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="500">
-            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-              <img src="img/tokyo.png" alt="Photo 5" class="w-full h-80 object-cover rounded-md mb-4">
-              <h3 class="text-2xl font-anime text-sakura">Photo 5</h3>
-              <p class="mt-2">"Caption 5"</p>
-            </div>
-          </div>
-          <!-- Card 6 -->
-          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="600">
-            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-              <img src="img/L.png" alt="Photo 6" class="w-full h-80 object-cover rounded-md mb-4">
-              <h3 class="text-2xl font-anime text-sakura">Photo 6</h3>
-              <p class="mt-2">"Caption 6"</p>
-            </div>
+      
+      <div id="hall-of-fame-scroll" class="flex overflow-x-auto snap-x snap-mandatory gap-6 hide-scrollbar py-4 px-8 w-full scroll-smooth">
+        
+        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+            <img src="photo_5_2026-05-20_01-16-45.jpg" alt="Photo 1" class="w-full h-80 object-cover rounded-md mb-4">
+            <h3 class="text-2xl font-anime text-sakura">Photo 1</h3>
+            <p class="mt-2">"Caption 1"</p>
           </div>
         </div>
+
+        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+            <img src="photo_6_2026-05-20_01-16-45.jpg" alt="Photo 2" class="w-full h-80 object-cover rounded-md mb-4">
+            <h3 class="text-2xl font-anime text-sakura">Photo 2</h3>
+            <p class="mt-2">"Caption 2"</p>
+          </div>
+        </div>
+
+        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+            <img src="2025-08-21 (7).png" alt="Photo 3" class="w-full h-80 object-cover rounded-md mb-4">
+            <h3 class="text-2xl font-anime text-sakura">Photo 3</h3>
+            <p class="mt-2">"Caption 3"</p>
+          </div>
+        </div>
+
+      </div>
+
+      <button id="scroll-right-btn" class="absolute right-0 z-10 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200 focus:outline-none">
+        &#8594;
+      </button>
+    </div>
+  </section>
+
+  <!-- Section 5: The Y.V.A. Collection -->
+  <section class="py-20 bg-gray-100 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-anime text-center text-navy mb-12" data-aos="fade-down">The Collection</h2>
+      <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <a href="photo_7_2026-05-20_01-16-45.jpg" data-aos="zoom-in" class="block w-full h-48 md:h-64">
+          <img src="photo_7_2026-05-20_01-16-45.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 1">
+        </a>
+
+        <a href="photo_8_2026-05-20_01-16-45.jpg" data-aos="zoom-in" data-aos-delay="100" class="block w-full h-48 md:h-64">
+          <img src="photo_8_2026-05-20_01-16-45.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 2">
+        </a>
+        
+        <!-- Reusing images for the rest of the gallery to fill the grid -->
+        <a href="photo_1_2026-05-20_01-16-45.jpg" data-aos="zoom-in" data-aos-delay="200" class="block w-full h-48 md:h-64">
+          <img src="photo_1_2026-05-20_01-16-45.jpg" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 3">
+        </a>
+
       </div>
     </div>
   </section>
 
-  <!-- Section 5: The Gallery -->
-  <section class="my-16 md:my-24">
-    <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">The Y.V.A. Collection</h2>
-    <p class="text-center text-lg -mt-8 mb-12">(Your Very-own Adventures)</p>
-    <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <a href="img/1.png" data-aos="zoom-in" class="block w-full h-48 md:h-64">
-        <img src="img/1.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 1">
-      </a>
-      <a href="img/2.png" data-aos="zoom-in" data-aos-delay="100" class="block w-full h-48 md:h-64">
-        <img src="img/2.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 2">
-      </a>
-      <a href="img/3.png" data-aos="zoom-in" data-aos-delay="200" class="block w-full h-48 md:h-64">
-        <img src="img/3.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 3">
-      </a>
-      <a href="img/4.png" data-aos="zoom-in" data-aos-delay="300" class="block w-full h-48 md:h-64">
-        <img src="img/4.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 4">
-      </a>
-      <!-- Second Row of Photos -->
-      <a href="img/5.png" data-aos="zoom-in" data-aos-delay="400" class="block w-full h-48 md:h-64">
-        <img src="img/5.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 5">
-      </a>
-      <a href="img/6.png" data-aos="zoom-in" data-aos-delay="500" class="block w-full h-48 md:h-64">
-        <img src="img/6.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 6">
-      </a>
-      <a href="img/7.png" data-aos="zoom-in" data-aos-delay="600" class="block w-full h-48 md:h-64">
-        <img src="img/7.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 7">
-      </a>
-      <a href="img/8.png" data-aos="zoom-in" data-aos-delay="700" class="block w-full h-48 md:h-64">
-        <img src="img/8.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 8">
-      </a>
-      <!-- Third Row of Photos -->
-      <a href="img/9.png" data-aos="zoom-in" data-aos-delay="800" class="block w-full h-48 md:h-64">
-        <img src="img/9.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 9">
-      </a>
-      <a href="img/10.png" data-aos="zoom-in" data-aos-delay="900" class="block w-full h-48 md:h-64">
-        <img src="img/10.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 10">
-      </a>
-      <a href="img/11.png" data-aos="zoom-in" data-aos-delay="1000" class="block w-full h-48 md:h-64">
-        <img src="img/11.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 11">
-      </a>
-      <a href="img/12.png" data-aos="zoom-in" data-aos-delay="1100" class="block w-full h-48 md:h-64">
-        <img src="img/12.png" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white" alt="Memory 12">
-      </a>
+  <!-- Section 6: Finale -->
+  <section class="py-20 px-4 text-white relative">
+    <div class="absolute inset-0 bg-navy z-[-1]"></div>
+    <div class="max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden bg-navy text-center p-8" data-aos="zoom-in">
+      <h2 class="text-4xl md:text-5xl font-anime mb-4 text-sakura">Happy Birthday [Her Name]</h2>
+      <p class="text-lg">Have a wonderful year ahead!</p>
     </div>
   </section>
 
-    <!-- Section 6: Finale -->
-    <section class="my-16 md:my-24" data-aos="fade-up">
-        <h2 class="text-4xl md:text-5xl font-anime text-center mb-4">Happy Birthday [Enter Name of your loved one]</h2>
-        <div class="max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden bg-navy">
-    </section>
+  <footer class="bg-navy text-white p-8 text-center">
+    <p>Enjoy your day to the fullest.</p>
+    <p class="text-sm opacity-70 mt-2">Hope you liked it...</p>
+  </footer>
 
-</main>
-
-<!-- Footer -->
-<footer class="bg-navy text-white p-8 text-center">
-  <p>Enjoy your day to the fullest.</p>
-  <p class="text-sm opacity-70 mt-2">Hope you liked it...</p>
-</footer>
-
-<!-- These scripts are for the animations and photo gallery -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
-
-<!-- Link to your new external JavaScript file -->
-<script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    lightGallery(document.getElementById('lightgallery'), { speed: 500 });
+    
+    // Hall of Fame horizontal scroll logic
+    const scrollContainer = document.getElementById('hall-of-fame-scroll');
+    document.getElementById('scroll-left-btn').addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    document.getElementById('scroll-right-btn').addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
