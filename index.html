@@ -10,15 +10,15 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #FFF0F5; 
+      background-color: #FFF0F5;
       color: #333;
     }
     .font-anime {
       font-family: 'Mochiy Pop One', sans-serif;
     }
-    .text-sakura { color: #FFB7C5; } 
-    .bg-sakura-light { background-color: #FFF5F7; } 
-    .bg-navy { background-color: #2c3e50; } 
+    .text-sakura { color: #FFB7C5; }
+    .bg-sakura-light { background-color: #FFF5F7; }
+    .bg-navy { background-color: #2c3e50; }
     .text-navy { color: #2c3e50; }
     .hero-bg {
       background-image: url('83079761-edc7-4cd2-86b4-76088103552d.png');
@@ -28,8 +28,8 @@
     .scroll-snap-x {
       scroll-snap-type: x mandatory;
       overflow-x: scroll;
-      scrollbar-width: none; 
-      -ms-overflow-style: none; 
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
     .scroll-snap-x::-webkit-scrollbar {
       display: none;
@@ -112,53 +112,57 @@
   <section class="py-20 px-4">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-4xl font-anime text-navy text-center mb-12">Our Hall of Fame</h2>
-      <div class="flex overflow-x-auto scroll-snap-x space-x-8 pb-8">
-        <!-- Card 1 -->
-        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up">
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-            <img src="elelellelgg.jpg" alt="The Leg Video" class="w-full h-80 object-cover rounded-md mb-4">
-            <h3 class="text-2xl font-anime text-sakura">Wow</h3>
-            <p class="mt-2">"Do you remember the leg video? I was like wow the first time I saw it and just fell for you right at that moment really."</p>
+      <div class="relative">
+        <button id="scrollLeft" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center text-navy text-xl">&#8592;</button>
+        <button id="scrollRight" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center text-navy text-xl">&#8594;</button>
+        <div id="hallScroll" class="flex overflow-x-auto scroll-snap-x space-x-8 pb-8 px-12">
+          <!-- Card 1 -->
+          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="elelellelgg.jpg" alt="The Leg Video" class="w-full h-80 object-cover rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Wow</h3>
+              <p class="mt-2">"Do you remember the leg video? I was like wow the first time I saw it and just fell for you right at that moment really."</p>
+            </div>
           </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="100">
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-            <img src="straighten.jpg" alt="Straight Hair" class="w-full h-80 object-cover rounded-md mb-4">
-            <h3 class="text-2xl font-anime text-sakura">Looking Good</h3>
-            <p class="mt-2">"Omg you did look so good here, you did straighten your hair and was like what do you think."</p>
+          <!-- Card 2 -->
+          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="straighten.jpg" alt="Straight Hair" class="w-full h-80 object-cover rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Looking Good</h3>
+              <p class="mt-2">"Omg you did look so good here, you did straighten your hair and was like what do you think."</p>
+            </div>
           </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-            <img src="eyethingy.jpg" alt="At School" class="w-full h-80 object-cover rounded-md mb-4">
-            <h3 class="text-2xl font-anime text-sakura">So Lucky</h3>
-            <p class="mt-2">"This time you were at school and you did something on your eye. I was just like damn I am so lucky."</p>
+          <!-- Card 3 -->
+          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="eyethingy.jpg" alt="At School" class="w-full h-80 object-cover rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">So Lucky</h3>
+              <p class="mt-2">"This time you were at school and you did something on your eye. I was just like damn I am so lucky."</p>
+            </div>
           </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="300">
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-            <img src="youtube.jpg" alt="YouTube Video" class="w-full h-80 object-cover rounded-md mb-4">
-            <h3 class="text-2xl font-anime text-sakura">YouTube Star</h3>
-            <p class="mt-2">"Lol your youtube video I did look at that video a lot of times fr."</p>
+          <!-- Card 4 -->
+          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="youtube.jpg" alt="YouTube Video" class="w-full h-80 object-cover rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">YouTube Star</h3>
+              <p class="mt-2">"Lol your youtube video I did look at that video a lot of times fr."</p>
+            </div>
           </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="400">
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-            <img src="snile.jpg" alt="Smile" class="w-full h-80 object-cover rounded-md mb-4">
-            <h3 class="text-2xl font-anime text-sakura">That Smile</h3>
-            <p class="mt-2">"Awwwwww your smile is the most precious thing ever in the world."</p>
+          <!-- Card 5 -->
+          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="400">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="snile.jpg" alt="Smile" class="w-full h-80 object-cover rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">That Smile</h3>
+              <p class="mt-2">"Awwwwww your smile is the most precious thing ever in the world."</p>
+            </div>
           </div>
-        </div>
-        <!-- Card 6 -->
-        <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="500">
-          <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
-            <img src="damn.jpg" alt="Pretty" class="w-full h-80 object-cover rounded-md mb-4">
-            <h3 class="text-2xl font-anime text-sakura">Beautiful</h3>
-            <p class="mt-2">"Looooooook looook how pretty you are like sooo good I love."</p>
+          <!-- Card 6 -->
+          <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up" data-aos-delay="500">
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+              <img src="damn.jpg" alt="Pretty" class="w-full h-80 object-cover rounded-md mb-4">
+              <h3 class="text-2xl font-anime text-sakura">Beautiful</h3>
+              <p class="mt-2">"Looooooook looook how pretty you are like sooo good I love."</p>
+            </div>
           </div>
         </div>
       </div>
@@ -175,11 +179,18 @@
   </section>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="app.js"></script>
+  <script src="script.js"></script>
   <script>
     AOS.init({
       duration: 1000,
       once: true,
+    });
+
+    document.getElementById('scrollLeft').addEventListener('click', () => {
+      document.getElementById('hallScroll').scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    document.getElementById('scrollRight').addEventListener('click', () => {
+      document.getElementById('hallScroll').scrollBy({ left: 300, behavior: 'smooth' });
     });
   </script>
 </body>
