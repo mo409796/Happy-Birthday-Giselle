@@ -35,12 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
         once: true,
     });
 
-    // --- Initialize LightGallery ---
-    lightGallery(document.getElementById('lightgallery'), {
-        speed: 500,
-        download: false
-    });
-
     // --- Hall of Fame Scroller ---
     const scroller = document.getElementById('hall-of-fame-scroller');
     const scrollLeftBtn = document.getElementById('scroll-left-btn');
